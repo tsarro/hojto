@@ -8,6 +8,7 @@ import javax.persistence.Id;
 public class Topic {
     @Id @GeneratedValue
     private int id;
+    private int categoryId;
     private String header;
     private String user;
     private String message;
@@ -45,6 +46,14 @@ public class Topic {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 
     @Override
