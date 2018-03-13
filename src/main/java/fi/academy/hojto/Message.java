@@ -8,11 +8,17 @@ public class Message {
     private int id;
     private String message;
     private String user;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn
     private Topic topicId;
 
     public Message() {
+    }
+
+    public Message(String message, String user) {
+        this.message = message;
+        this.user = user;
+
     }
 
     public int getId() {
@@ -38,6 +44,14 @@ public class Message {
     public void setTopicId(Topic topicId) {
         this.topicId = topicId;
     }
+
+//        public int getTopicId() {
+//        return topicId;
+//    }
+//
+//    public void setTopicId(int topicId) {
+//        this.topicId = topicId;
+//    }
 
     public String getUser() {
         return user;
