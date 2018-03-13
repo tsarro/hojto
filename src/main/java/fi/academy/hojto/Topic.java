@@ -16,6 +16,13 @@ public class Topic {
     public Topic() {
     }
 
+    public Topic(int categoryId, String header, String user, String message) {
+        this.categoryId = categoryId;
+        this.header = header;
+        this.user = user;
+        this.message = message;
+    }
+
     public int getId() {
         return id;
     }

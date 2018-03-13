@@ -34,5 +34,9 @@ public class HojtoApplication {
         t.setMessage("Massii on, seuraa ei. Soittele 555-1234");
         topicRepository.save(t);
     }
-
+    protected void luoTestiTopic(TopicRepository topicRepository) {
+        Topic t = new Topic(1, "Moi", "Maija", "Moi");
+        topicRepository.save(t);
+    }
+    
 }
