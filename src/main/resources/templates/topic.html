@@ -6,6 +6,13 @@
 
     <link rel="stylesheet" href="style.css" th:href="@{/style.css}"/>
 <body>
-
+<table>
+    <tr th:each="topic : ${topiclist}">
+        <td th:text="${topic.getId()}"></td>
+        <td th:text="${topic.getHeader()}"></td>
+        <td th:text="${topic.getMessage()}"></td>
+        <td>Teksti</td>
+    </tr>
+</table>
 </body>
 </html>
