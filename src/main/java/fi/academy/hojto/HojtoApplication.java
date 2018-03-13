@@ -44,7 +44,7 @@ public class HojtoApplication {
     private void luontiJoukolla(MessageRepository messageRepository, TopicRepository topicRepository) {
         List<Message> messages = new ArrayList<>();
         Message o = new Message("Turo", "Moilanen");
-        Topic t = new Topic(2, "Testitopicci", "Olli", "moikka kaikki");
+        Topic t = new Topic(1, "Testitopicci", "Olli", "moikka kaikki");
         o.setTopicId(t);
         messages.add(o);
         Message m = new Message("Moikka", "Olli");

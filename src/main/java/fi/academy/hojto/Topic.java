@@ -7,6 +7,7 @@ import java.util.List;
 public class Topic {
     @Id @GeneratedValue
     private int id;
+    @Column(name = "category_id")
     private int categoryId;
     private String header;
     private String user;
