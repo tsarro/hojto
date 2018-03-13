@@ -1,7 +1,15 @@
-@import url("https://fonts.googleapis.com/css?family=Neucha");
+@import url("https://fonts.googleapis.com/css?family=Work+Sans");
 
 body {
-    background: url("../images/redlightdistrict.jpg");
+    background: url("/images/rld.png");
     background-size: cover;
     background-attachment: fixed;
+    font-family: 'Work Sans', sans-serif;
+}
+
+table {
+    background: navajowhite;
+    opacity: 0.7;
+    padding: 20em;
+
 }
