@@ -29,7 +29,7 @@ public class HojtoApplication {
 	}
 
 	protected void luoTestiTopic(TopicRepository topicRepository) {
-		Topic t = new Topic(1, "Moi", "Maija", "Moi");
+		Topic t = new Topic(1, "moi", "moi", "moi");
 		topicRepository.save(t);
 	}
 

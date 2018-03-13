@@ -1,6 +1,7 @@
 package fi.academy.hojto;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Topic {
@@ -9,18 +10,18 @@ public class Topic {
     private int categoryId;
     private String header;
     private String user;
-    private String firstMessage;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "message")
-    private Message message;
+    private String firstmessage;
+    @OneToMany(mappedBy = "topicId")
+    private List<Message> messages;
 
     public Topic() {
     }
 
-    public Topic(int categoryId, String header, String user, String firstMessage) {
+    public Topic(int categoryId, String header, String user, String firstmessage) {
         this.categoryId = categoryId;
         this.header = header;
         this.user = user;
+        this.firstmessage = firstmessage;
     }
 
     public int getId() {
@@ -47,20 +48,20 @@ public class Topic {
         this.user = user;
     }
 
-    public String getFirstMessage() {
-        return firstMessage;
+    public String getFirstmessage() {
+        return firstmessage;
     }
 
-    public void setFirstMessage(String firstMessage) {
-        this.firstMessage = firstMessage;
+    public void setFirstmessage(String firstmessage) {
+        this.firstmessage = firstmessage;
     }
 
-    public Message getMessage() {
-        return message;
+    public List<Message> getMessages() {
+        return messages;
     }
 
-    public void setMessage(Message message) {
-        this.message = message;
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
     }
 
     public int getCategoryId() {
@@ -75,9 +76,11 @@ public class Topic {
     public String toString() {
         return "Topic{" +
                 "id=" + id +
+                ", categoryId=" + categoryId +
                 ", header='" + header + '\'' +
                 ", user='" + user + '\'' +
-                ", message='" + message + '\'' +
+                ", firstmessage='" + firstmessage + '\'' +
+                ", messages=" + messages +
                 '}';
     }
 }

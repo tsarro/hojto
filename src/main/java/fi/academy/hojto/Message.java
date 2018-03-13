@@ -8,8 +8,8 @@ public class Message {
     private int id;
     private String message;
     private String user;
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="topicId")
+    @ManyToOne
+    @JoinColumn
     private Topic topicId;
 
     public Message() {
