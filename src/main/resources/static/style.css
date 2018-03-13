@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Neucha");
 
 body {
-    background: url("../images/redlightdistrict.jpg");
+    background: url("/images/rld.png");
     background-size: cover;
     background-attachment: fixed;
 }
