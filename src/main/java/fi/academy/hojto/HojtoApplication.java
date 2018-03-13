@@ -31,12 +31,12 @@ public class HojtoApplication {
     protected void createOneTopic(TopicRepository topicRepository) {
         Topic t = new Topic();
         t.setHeader("Varakas etsii pk-seuraa");
-        t.setMessage("Massii on, seuraa ei. Soittele 555-1234");
+        t.setFirstMessage("Massii on, seuraa ei. Soittele 555-1234");
         topicRepository.save(t);
     }
     protected void luoTestiTopic(TopicRepository topicRepository) {
         Topic t = new Topic(1, "Moi", "Maija", "Moi");
         topicRepository.save(t);
     }
-    
+
 }
