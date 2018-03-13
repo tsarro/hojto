@@ -8,10 +8,8 @@
 <body>
 <table>
     <tr th:each="topic : ${topiclist}">
-        <td th:text="${topic.getId()}"></td>
-        <td th:text="${topic.getHeader()}"></td>
-        <td th:text="${topic.getFirstmessage()}"></td>
-        <td>Teksti</td>
+        <td><div id="topicheader" th:text="${topic.getHeader()}"/><div id="previewtext" th:text="${topic.getFirstmessage()}"/></td>
+
     </tr>
 </table>
 </body>

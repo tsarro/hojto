@@ -33,18 +33,18 @@ public class HojtoApplication {
 	}
 
 	protected void luoTestiTopic(TopicRepository topicRepository) {
-		Topic t = new Topic(1, "moi", "moi", "moi");
+		Topic t = new Topic(1, "Olen hellyydenkipeä", "moi", "moi");
 		topicRepository.save(t);
-		Topic e = new Topic(1, "moi", "moi", "terve");
+		Topic e = new Topic(1, "Java-koodaria etsitään", "moi", "terve");
 		topicRepository.save(e);
-		Topic k = new Topic(2, "Moi", "Olli", "terve");
+		Topic k = new Topic(2, "Kaipaan hellyyttä", "Olli", "terve");
 		topicRepository.save(k);
 	}
 
     private void luontiJoukolla(MessageRepository messageRepository, TopicRepository topicRepository) {
         List<Message> messages = new ArrayList<>();
         Message o = new Message("Turo", "Moilanen");
-        Topic t = new Topic(2, "Moi", "Moi", "moi");
+        Topic t = new Topic(2, "Testitopicci", "Olli", "moikka kaikki");
         o.setTopicId(t);
         messages.add(o);
         Message m = new Message("Moikka", "Olli");
