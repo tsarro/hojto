@@ -1,16 +1,16 @@
 package fi.academy.hojto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Message {
     @Id @GeneratedValue
     private int id;
     private String message;
-    private int topicId;
     private String user;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="topicId")
+    private Topic topicId;
 
     public Message() {
     }
@@ -31,11 +31,11 @@ public class Message {
         this.message = message;
     }
 
-    public int getTopicId() {
+    public Topic getTopicId() {
         return topicId;
     }
 
-    public void setTopicId(int topicId) {
+    public void setTopicId(Topic topicId) {
         this.topicId = topicId;
     }
 
