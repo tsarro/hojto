@@ -8,7 +8,7 @@
 <body>
 <table>
     <tr th:each="topic : ${topiclist}">
-        <td><div id="topicheader" th:text="${topic.getHeader()}"/><div id="previewtext" th:text="${topic.getFirstmessage()}"/></td>
+        <td><a id="topicheader" th:href="@{/posts}+'?topicId='+${topic.id}" th:text="${topic.getHeader()}"/><div id="previewtext" th:text="${topic.getFirstmessage()}"/></td>
 
     </tr>
 </table>

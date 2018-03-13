@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Post</title>
+    <meta charset="UTF-8"/>
+
+    <link rel="stylesheet" href="style.css" th:href="@{/style.css}"/>
+<body>
+<table>
+    <tr th:each="post : ${postlist}">
+        <td><div id="topicheader" th:text="${post.getMessage()}"/></td>
+
+    </tr>
+</table>
+</body>
+</html>
