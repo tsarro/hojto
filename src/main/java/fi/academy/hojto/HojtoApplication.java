@@ -5,6 +5,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @SpringBootApplication
 public class HojtoApplication {
 
@@ -13,11 +16,12 @@ public class HojtoApplication {
 	}
 
 	@Bean
-	CommandLineRunner luoTestiKayttaja(UserRepository userRepository, TopicRepository topicRepository) {
+	CommandLineRunner luoTestiKayttaja(UserRepository userRepository, TopicRepository topicRepository, MessageRepository messageRepository) {
 		return args -> {
 
 			luontiYksittain(userRepository);
 			luoTestiTopic(topicRepository);
+			luontiJoukolla(messageRepository, topicRepository);
 		};
 
 	}
@@ -31,7 +35,25 @@ public class HojtoApplication {
 	protected void luoTestiTopic(TopicRepository topicRepository) {
 		Topic t = new Topic(1, "moi", "moi", "moi");
 		topicRepository.save(t);
+		Topic e = new Topic(1, "moi", "moi", "terve");
+		topicRepository.save(e);
+		Topic k = new Topic(2, "Moi", "Olli", "terve");
+		topicRepository.save(k);
 	}
+
+    private void luontiJoukolla(MessageRepository messageRepository, TopicRepository topicRepository) {
+        List<Message> messages = new ArrayList<>();
+        Message o = new Message("Turo", "Moilanen");
+        Topic t = new Topic(2, "Moi", "Moi", "moi");
+        o.setTopicId(t);
+        messages.add(o);
+        Message m = new Message("Moikka", "Olli");
+        m.setTopicId(t);
+        messages.add(m);
+        messageRepository.saveAll(messages);
+
+    }
+
 
 
 
