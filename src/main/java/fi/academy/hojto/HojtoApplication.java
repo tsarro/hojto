@@ -33,4 +33,14 @@ public class HojtoApplication {
 		topicRepository.save(t);
 	}
 
+
+
+    protected void createOneTopic(TopicRepository topicRepository) {
+        Topic t = new Topic();
+        t.setHeader("Varakas etsii pk-seuraa");
+        t.setFirstmessage("Massii on, seuraa ei. Soittele 555-1234");
+        topicRepository.save(t);
+    }
+
+
 }
