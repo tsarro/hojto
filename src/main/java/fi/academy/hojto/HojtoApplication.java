@@ -13,10 +13,11 @@ public class HojtoApplication {
 	}
 
 	@Bean
-	CommandLineRunner luoTestiKayttaja(UserRepository userRepository) {
+	CommandLineRunner luoTestiKayttaja(UserRepository userRepository, TopicRepository topicRepository) {
 		return args -> {
 
 			luontiYksittain(userRepository);
+			luoTestiTopic(topicRepository);
 		};
 
 	}
@@ -25,6 +26,11 @@ public class HojtoApplication {
 		User u = new User();
 		u.setName("Maija");
 		userRepository.save(u);
+	}
+
+	protected void luoTestiTopic(TopicRepository topicRepository) {
+		Topic t = new Topic(1, "Moi", "Maija", "Moi");
+		topicRepository.save(t);
 	}
 
 }
