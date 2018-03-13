@@ -1,18 +1,27 @@
 package fi.academy.hojto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Topic {
     @Id @GeneratedValue
     private int id;
+    private int categoryId;
     private String header;
     private String user;
-    private String message;
+    private String firstmessage;
+    @OneToMany(mappedBy = "topicId")
+    private List<Message> messages;
 
     public Topic() {
+    }
+
+    public Topic(int categoryId, String header, String user, String firstmessage) {
+        this.categoryId = categoryId;
+        this.header = header;
+        this.user = user;
+        this.firstmessage = firstmessage;
     }
 
     public int getId() {
@@ -39,21 +48,39 @@ public class Topic {
         this.user = user;
     }
 
-    public String getMessage() {
-        return message;
+    public String getFirstmessage() {
+        return firstmessage;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setFirstmessage(String firstmessage) {
+        this.firstmessage = firstmessage;
+    }
+
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 
     @Override
     public String toString() {
         return "Topic{" +
                 "id=" + id +
+                ", categoryId=" + categoryId +
                 ", header='" + header + '\'' +
                 ", user='" + user + '\'' +
-                ", message='" + message + '\'' +
+                ", firstmessage='" + firstmessage + '\'' +
+                ", messages=" + messages +
                 '}';
     }
 }
