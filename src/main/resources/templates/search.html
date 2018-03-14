@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Search</title>
+    <meta charset="UTF-8"/>
+
+    <link rel="stylesheet" href="style.css" th:href="@{/style.css}"/>
+<body>
+<form th:action="@{/search}" th:object="${messages}" th:method="post">
+    <h3>Hae viestejä sanan perusteella</h3>
+    <input th:field="*{message}"/><input type="submit"/>
+</form>
+</body>
+</html>

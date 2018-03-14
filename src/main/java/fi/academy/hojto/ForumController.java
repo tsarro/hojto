@@ -59,8 +59,18 @@ public class ForumController {
         return "post";
     }
 
-    @PostMapping("/posts")
-    public String postSubmit(@ModelAttribute Message message) {
+//    @PostMapping("/posts")
+//    public String newMessage(Model model) {
+//        model.addAttribute("message", new Message());
+//        return "post";
+//    }
+
+    @PostMapping("/newposts")
+    public String postSubmit(Model model, @RequestParam int topicId, Message message) {
+        mrepo.save(message);
+        Topic topic = new Topic(); topic.setId(topicId);
+        List<Message> postlist = mrepo.findByTopicId(topic);
+        model.addAttribute("postlist", postlist);
         return "post";
     }
 }

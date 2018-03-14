@@ -8,15 +8,17 @@
 <body>
 <table>
     <tr th:each="post : ${postlist}">
-        <td><div id="topicheader" th:text="${post.getMessage()}"/></td>
+        <td><div id="topicheader" th:text="${post.getContent()}"/></td>
 
     </tr>
 
 </table>
 
-<form action="#" th:action="@{/post}" th:object="${message}" method="post">
-    <p>Käyttäjänimi: <input type="text" th:field="*{user}" /></p>
-    <p>Message: <input type="text" th:field="*{message}" /></p>
+<form action="#" th:action="@{/newposts}" th:object="${message}" method="post">
+    <!--<input th:type="hidden" th:field="*{topicId}"/>-->
+    <p>Id: <input type="text" th:field="*{topicId}" /></p>
+    <p>Käyttäjänimi: <input type="text" th:field="*{nickname}" /></p>
+    <p>Message: <input type="text" th:field="*{content}" /></p>
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 </form>
 </body>
