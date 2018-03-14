@@ -4,11 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,7 +28,7 @@ public class ForumController {
     }*/
 
     @GetMapping("/frontpage")
-    public String jotain(Model model){
+    public String jotain(Model model) {
         return "frontpage";
     }
 
@@ -51,14 +49,21 @@ public class ForumController {
     }
 
     //Haetaan messaget topic id:n perusteella, (palauttaa tällä hetkellä vain ensimmäisen) @Olli @Heidi
+    //Uusi postaus @Outi, Heidi
     @GetMapping("/posts")
     public String specificPost(@RequestParam int topicId, Model model) {
         Topic topic = new Topic(); topic.setId(topicId);
         List<Message> postlist = mrepo.findByTopicId(topic);
+        model.addAttribute("postlist", postlist);
+        model.addAttribute("message", new Message());
+        return "post";
+    }
 
-            model.addAttribute("postlist", postlist);
-            return "post";
-        }
+    @PostMapping("/posts")
+    public String postSubmit(@ModelAttribute Message message) {
+        return "post";
+    }
+    
 }
 
 
