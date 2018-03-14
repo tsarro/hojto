@@ -10,6 +10,7 @@
     <tr th:each="topic : ${topiclist}">
         <td><a id="topicheader" th:href="@{/posts}+'?topicId='+${topic.getId()}" th:text="${topic.getHeader()}"/><div id="previewtext" th:text="${topic.getFirstmessage()}"/></td>
 
+
     </tr>
 </table>
 </body>

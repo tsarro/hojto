@@ -49,28 +49,28 @@ public class ForumController {
     }
 
     //Haetaan messaget topic id:n perusteella, (palauttaa tällä hetkellä vain ensimmäisen) @Olli @Heidi
-    //Uusi postaus @Outi, Heidi
+    //Uusi postaus @Outi @Heidi
     @GetMapping("/posts")
     public String specificPost(@RequestParam int topicId, Model model) {
         Topic topic = new Topic(); topic.setId(topicId);
         List<Message> postlist = mrepo.findByTopicId(topic);
         model.addAttribute("topicstarter", trepo.findById(topic.getId()));
         model.addAttribute("postlist", postlist);
-        model.addAttribute("message", new Message());
+        //Alla message-olioon paketoidaan id
+        Message msg = new Message();
+        msg.setTopicId(topic);
+        model.addAttribute("message", msg);
         return "post";
     }
 
-//    @PostMapping("/posts")
-//    public String newMessage(Model model) {
-//        model.addAttribute("message", new Message());
-//        return "post";
-//    }
-
+    //Uuden viestin postittaminen @Heidi @Outi
     @PostMapping("/newposts")
-    public String postSubmit(Model model, @RequestParam int topicId, Message message) {
+    public String postSubmit(Model model, Message message) {
+        Optional<Topic> topic = trepo.findById(message.getTopicId().getId());
+        message.setTopicId(topic.get());
         mrepo.save(message);
-        Topic topic = new Topic(); topic.setId(topicId);
-        List<Message> postlist = mrepo.findByTopicId(topic);
+        model.addAttribute("topicstarter", topic);
+        List<Message> postlist = mrepo.findByTopicId(topic.get());
         model.addAttribute("postlist", postlist);
         return "post";
     }
