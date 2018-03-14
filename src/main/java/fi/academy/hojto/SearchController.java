@@ -30,9 +30,8 @@ public class SearchController {
 
     @PostMapping("/searchResult")
     public String searchMessageContainingWord(Message message, Model model) {
-        List<Message> ce = mrepo.findByContentContains(message.getContent());
-
-        model.addAttribute("postlist", ce);
+        List<Message> m = mrepo.findByContentContains(message.getContent());
+        model.addAttribute("postlist", m);
         return "post";
     }
 }
