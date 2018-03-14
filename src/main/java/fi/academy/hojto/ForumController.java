@@ -63,7 +63,6 @@ public class ForumController {
     public String postSubmit(@ModelAttribute Message message) {
         return "post";
     }
-    
 }
 
 
