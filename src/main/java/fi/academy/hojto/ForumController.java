@@ -54,6 +54,7 @@ public class ForumController {
     public String specificPost(@RequestParam int topicId, Model model) {
         Topic topic = new Topic(); topic.setId(topicId);
         List<Message> postlist = mrepo.findByTopicId(topic);
+        model.addAttribute("topicstarter", trepo.findById(topic.getId()));
         model.addAttribute("postlist", postlist);
         model.addAttribute("message", new Message());
         return "post";

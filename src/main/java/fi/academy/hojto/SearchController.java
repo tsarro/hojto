@@ -6,7 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.transaction.Transactional;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class SearchController {
@@ -19,14 +21,18 @@ public class SearchController {
     UserRepository urepo;
 
     @GetMapping("/search")
-    public String jotain(Model model) {
-        return "seach";
+    @Transactional
+    public String hakulomake(Model model) {
+        Message msg = new Message();
+        model.addAttribute("msg", msg);
+        return "search";
     }
 
     @PostMapping("/searchResult")
     public String searchMessageContainingWord(Message message, Model model) {
         List<Message> ce = mrepo.findByContentContains(message.getContent());
-        model.addAttribute("messages", ce);
-        return "posts";
+
+        model.addAttribute("postlist", ce);
+        return "post";
     }
 }
