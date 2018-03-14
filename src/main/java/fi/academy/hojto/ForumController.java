@@ -58,7 +58,8 @@ public class ForumController {
     }
 
     @PostMapping("/posts")
-    public String postSubmit(@ModelAttribute Message message) {
+    public String postSubmit(@RequestParam(name= "topicId") int topicId, @ModelAttribute Message message) {
+        mrepo.save(message);
         return "post";
     }
 
