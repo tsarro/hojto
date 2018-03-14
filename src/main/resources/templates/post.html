@@ -6,7 +6,13 @@
 
     <link rel="stylesheet" href="style.css" th:href="@{/style.css}"/>
 <body>
+<h1 th:object="${firstmsg}" th:method="post">
+    <div th:text="${firstmsg.get().getHeader()}"/></h1>
 <table>
+    <tr th:object="${firstmsg}" th:method="post">
+        <td><div th:text="${firstmsg.get().getFirstmessage()}"/></td>
+
+    </tr>
     <tr th:each="post : ${postlist}">
         <td><div id="topicheader" th:text="${post.getContent()}"/></td>
 

@@ -6,9 +6,9 @@
 
     <link rel="stylesheet" href="style.css" th:href="@{/style.css}"/>
 <body>
-<form th:action="@{/search}" th:object="${messages}" th:method="post">
+<form th:action="@{/searchResult}" th:object="${msg}" th:method="post">
     <h3>Hae viestejä sanan perusteella</h3>
-    <input th:field="*{message}"/><input type="submit"/>
+    <input th:field="*{content}"/><input type="submit"/>
 </form>
 </body>
 </html>
