@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Post</title>
+    <meta charset="UTF-8"/>
+    <title><!DOCTYPE html>
+        <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+              xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+        <head>
+            <title>Kirjautumissivu</title>
+        </head>
+<body>
+<div th:if="${param.error}">
+    Invalid username and password.
+</div>
+<div th:if="${param.logout}">
+    You have been logged out.
+</div>
+<form th:action="@{/login}" method="post">
+    <table>
+        <tr>
+            <td>Käyttäjänimi</td><td><input type="text" name="username"/></td>
+        </tr>
+        <tr>
+            <td>Salasana</td><td><input type="password" name="password"/></td>
+            <div><input type="submit" value="Sign In"/></div>
+        </tr>
+    </table>
+    <div>Rekisteröidy käyttäjäksi</div>
+</form>
+</body>
+</html></title>
+</head>
+<body>
+</body>
+</html>
