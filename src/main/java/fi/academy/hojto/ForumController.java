@@ -4,11 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,7 +28,7 @@ public class ForumController {
     }*/
 
     @GetMapping("/frontpage")
-    public String jotain(Model model){
+    public String jotain(Model model) {
         return "frontpage";
     }
 
@@ -53,9 +51,31 @@ public class ForumController {
     @GetMapping("/posts")
     public String specificPost(@RequestParam(name = "topicId") int topicId, Model model) {
         List<Message> postlist = mrepo.messagesByTopics(topicId);
-            model.addAttribute("postlist", postlist);
-            return "post";
-        }
+        model.addAttribute("postlist", postlist);
+        model.addAttribute("message", new Message());
+        return "post";
+    }
+
+    //Uusi postaus @Outi, Heidi
+//    @PostMapping("/newpost")
+//    public String lomakekasittelija(@RequestParam(name = "topicId") int topicId, Model model) {
+//        model.addAttribute("message", new Message());
+////        mrepo.save(message);
+//        return "post";
+//
+//    }
+
+//    @GetMapping("/post")
+//    public String newPost(Model model) {
+//        model.addAttribute("message", new Message());
+//        return "post";
+//    }
+
+    @PostMapping("/posts")
+    public String postSubmit(@ModelAttribute Message message) {
+        return "post";
+    }
+
 }
 
 

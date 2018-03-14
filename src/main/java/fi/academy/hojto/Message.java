@@ -1,6 +1,7 @@
 package fi.academy.hojto;
 
 import javax.persistence.*;
+import java.util.Optional;
 
 @Entity
 public class Message {
@@ -70,4 +71,6 @@ public class Message {
                 ", user='" + user + '\'' +
                 '}';
     }
+
+
 }
