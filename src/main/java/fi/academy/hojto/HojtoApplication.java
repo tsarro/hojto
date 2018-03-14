@@ -52,7 +52,7 @@ public class HojtoApplication {
         o.setTopicId(t);
         messages.add(o);
         Message m = new Message("Moikka", "Olli");
-        m.setTopicId(t);
+        //m.setTopicId(t);
         messages.add(m);
         messageRepository.saveAll(messages);
 

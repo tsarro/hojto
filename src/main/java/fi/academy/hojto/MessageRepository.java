@@ -9,7 +9,6 @@ import java.util.List;
 
 public interface MessageRepository extends CrudRepository<Message, Integer> {
 
-    @Query("SELECT m from Message m  WHERE m.topicId = 7")
-    List<Message> messagesByTopics(@Param("topicId") int topicId);
-
+    List<Message> findByTopicId(Topic topicId); //hakee messaget topicId:n perusteella @Olli
 }
+

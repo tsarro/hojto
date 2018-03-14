@@ -50,9 +50,12 @@ public class ForumController {
         return "topic";
     }
 
+    //Haetaan messaget topic id:n perusteella, (palauttaa tällä hetkellä vain ensimmäisen) @Olli @Heidi
     @GetMapping("/posts")
-    public String specificPost(@RequestParam(name = "topicId") int topicId, Model model) {
-        List<Message> postlist = mrepo.messagesByTopics(topicId);
+    public String specificPost(@RequestParam int topicId, Model model) {
+        Topic topic = new Topic(); topic.setId(topicId);
+        List<Message> postlist = mrepo.findByTopicId(topic);
+
             model.addAttribute("postlist", postlist);
             return "post";
         }
