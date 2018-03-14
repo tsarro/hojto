@@ -34,17 +34,19 @@ public class ForumController {
         return "frontpage";
     }
 
-    @GetMapping("/topics1")
+    /*@GetMapping("/topics1")
     public String specificTopic1(Model model) {
         model.addAttribute("topiclist", trepo.findByCategoryId(1));
         return "topic";
-    }
+    }*/
 
 
     // Haetaan kaikki topicit tietystä kategoriasta @Olli,Outi,Heidi,Juuso
-    @GetMapping("/topics2")
-    public String specificTopic2(Model model) {
-        model.addAttribute("topiclist", trepo.findByCategoryId(2));
+    // Muutettu hakua niin, että käytetään samaa mappingiä kaikissa linkeissä,
+    // id määrittää minkä category id:n topicit haetaan. @Olli
+    @GetMapping("/topics")
+    public String specificTopic2(@RequestParam int id, Model model) {
+        model.addAttribute("topiclist", trepo.findByCategoryId(id));
         return "topic";
     }
 
