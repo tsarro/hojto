@@ -1,6 +1,7 @@
 package fi.academy.hojto;
 
 import javax.persistence.*;
+import java.util.Optional;
 
 @Entity
 public class Message {
@@ -9,7 +10,7 @@ public class Message {
     private String message;
     private String user;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn
+    @JoinColumn (name="topicid")
     private Topic topicId;
 
     public Message() {
@@ -70,4 +71,6 @@ public class Message {
                 ", user='" + user + '\'' +
                 '}';
     }
+
+
 }
