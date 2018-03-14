@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Post</title>
+    <meta charset="UTF-8"/>
+    <title>Register</title>
+</head>
+<body>
+<table class="perus">
+
+    <tr>
+        <td>
+            <form action="#" th:action="@{/lomakekasittelija}" th:object="${lisaysOlio}" method="post">
+                <!--<div><label th:text="'Sanonta:'" th:for="teksti"/> <input th:field="*{teksti}"/></div>-->
+                <div>Nimi: <input th:type="text" th:field="*{teksti}"/></div>
+                <div>Sähköposti: <input th:type="text" th:field="*{teksti}"/></div>
+                <div>Olen täyttänyt 18 vuotta: <input th:type="checkbox" th:name="suostumus" th:value="Kyllä"/></div>
+
+                <!--<div>value:<input th:type="text" th:field="*{value}"/></div>-->
+                <button>Rekisteröidy</button>
+            </form>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
