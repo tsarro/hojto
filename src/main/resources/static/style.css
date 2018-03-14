@@ -1,18 +1,25 @@
 @import url("https://fonts.googleapis.com/css?family=Work+Sans");
 
 body {
-    background: url("/images/rld.png");
+    background: url("/images/redlight.png");
     background-size: cover;
     background-attachment: fixed;
+    background-position: center;
     font-family: 'Work Sans', sans-serif;
+    text-shadow: 1px 1px 2px white, 0 0 25px darkorange, 0 0 5px white;
 }
 
 table {
     background: navajowhite;
+    transform: translate(300px,100px);
     opacity: 0.7;
     padding: 2em;
     border-radius: 5px;
+    border-collapse: collapse;
 }
+/*div:hover {
+    width: 400px;
+}*/
 
 #topicheader {
     font-size: 1.6em;
@@ -21,5 +28,10 @@ table {
 
 #previewtext {
     border-bottom: solid 1px darkgrey;
+
+}
+
+tr:hover {
+    background: silver;
 
 }
