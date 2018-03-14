@@ -11,10 +11,11 @@
     <div th:text="${topicstarter.get().getHeader()}"/></h1>
 <table>
     <tr th:object="${topicstarter}" th:method="post">
-        <td><div th:text="${topicstarter.get().getFirstmessage()}"/></td>
+        <td><div class="topicheader" th:text="${topicstarter.get().getUser()}"/></td>
+        <td><div class="topicheader" th:text="${topicstarter.get().getFirstmessage()}"/></td>
 
-<h2 th:object="${topicstarter}" th:method="post">
-    <div class="topicheader" th:text="${topicstarter.get().getHeader()}"/></h2>
+<!--<h2 th:object="${topicstarter}" th:method="post">-->
+    <!--<div class="topicheader" th:text="${topicstarter.get().getHeader()}"/></h2>-->
 <table>
     <tr th:object="${topicstarter}" th:method="post">
         <td><div class="topicheader" th:text="${topicstarter.get().getUser()}"/></td>
