@@ -49,7 +49,7 @@ public class ForumController {
     }
 
     //Haetaan messaget topic id:n perusteella, (palauttaa tällä hetkellä vain ensimmäisen) @Olli @Heidi
-    //Uusi postaus @Outi, Heidi
+    //Uusi postaus @Outi @Heidi
     @GetMapping("/posts")
     public String specificPost(@RequestParam int topicId, Model model) {
         Topic topic = new Topic(); topic.setId(topicId);
@@ -65,10 +65,13 @@ public class ForumController {
 //        return "post";
 //    }
 
+    //Uuden viestin postittaminen @Heidi @Outi
     @PostMapping("/newposts")
     public String postSubmit(Model model, @RequestParam int topicId, Message message) {
         mrepo.save(message);
         Topic topic = new Topic(); topic.setId(topicId);
+        int test = topic.getId();
+        model.addAttribute("test", test);
         List<Message> postlist = mrepo.findByTopicId(topic);
         model.addAttribute("postlist", postlist);
         return "post";
