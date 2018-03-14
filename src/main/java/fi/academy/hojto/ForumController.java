@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -46,6 +47,13 @@ public class ForumController {
         model.addAttribute("topiclist", trepo.findByCategoryId(2));
         return "topic";
     }
+
+    @GetMapping("/posts")
+    public String specificPost(@RequestParam(name = "topicId") int topicId, Model model) {
+        List<Message> postlist = mrepo.messagesByTopics(topicId);
+            model.addAttribute("postlist", postlist);
+            return "post";
+        }
 }
 
 

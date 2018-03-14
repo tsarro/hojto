@@ -20,7 +20,7 @@ public class HojtoApplication {
 		return args -> {
 
 			luontiYksittain(userRepository);
-			luoTestiTopic(topicRepository);
+			luoTestiTopic(topicRepository, messageRepository);
 			luontiJoukolla(messageRepository, topicRepository);
 		};
 
@@ -32,11 +32,15 @@ public class HojtoApplication {
 		userRepository.save(u);
 	}
 
-	protected void luoTestiTopic(TopicRepository topicRepository) {
+	protected void luoTestiTopic(TopicRepository topicRepository, MessageRepository messageRepository) {
 		Topic t = new Topic(1, "Olen hellyydenkipeä", "moi", "moi");
 		topicRepository.save(t);
 		Topic e = new Topic(1, "Java-koodaria etsitään", "moi", "terve");
+		Message o = new Message("Juusolla on asiaa","Juuso");
+		o.setTopicId(e);
+		messageRepository.save(o);
 		topicRepository.save(e);
+
 		Topic k = new Topic(2, "Kaipaan hellyyttä", "Olli", "terve");
 		topicRepository.save(k);
 	}
