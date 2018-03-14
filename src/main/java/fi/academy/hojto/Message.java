@@ -9,7 +9,7 @@ public class Message {
     private String message;
     private String user;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn
+    @JoinColumn (name="topicid")
     private Topic topicId;
 
     public Message() {
