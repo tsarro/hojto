@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Search</title>
+    <meta charset="UTF-8"/>
+
+    <link rel="stylesheet" href="style.css" th:href="@{/style.css}"/>
+<body>
+<table>
+    <div th:if="${postlist.isEmpty()}">
+        <h1>Ei löytynyt mitään.</h1>
+    </div>
+    <div th:unless="${postlist.isEmpty()}">
+        <tr th:each="post : ${postlist}">
+            <td>
+                <div class="topicheader"><a th:href="@{/posts}+'?topicId='+${post.getTopicId().getId()}"/>Mene viestiketjuun
+            </td>
+            <td>
+                <div class="topicheader" th:text="${post.getNickname()}"/>
+            </td>
+            <td>
+                <div class="topicheader" th:text="${post.getContent()}"/>
+            </td>
+
+        </tr>
+    </div>
+</table>
+
+</body>
+</html>

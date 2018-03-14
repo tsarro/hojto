@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -28,11 +29,11 @@ public class SearchController {
         return "search";
     }
 
+
     @PostMapping("/searchResult")
     public String searchMessageContainingWord(Message message, Model model) {
-        List<Message> ce = mrepo.findByContentContains(message.getContent());
-
-        model.addAttribute("postlist", ce);
-        return "post";
+        List<Message> m = mrepo.findByContentContains(message.getContent());
+        model.addAttribute("postlist", m);
+        return "searchresult";
     }
 }
