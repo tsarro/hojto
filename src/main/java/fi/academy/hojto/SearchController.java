@@ -32,6 +32,6 @@ public class SearchController {
     public String searchMessageContainingWord(Message message, Model model) {
         List<Message> m = mrepo.findByContentContains(message.getContent());
         model.addAttribute("postlist", m);
-        return "post";
+        return "searchresult";
     }
 }
