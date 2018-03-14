@@ -7,8 +7,8 @@ import java.util.Optional;
 public class Message {
     @Id @GeneratedValue
     private int id;
-    private String message;
-    private String user;
+    private String content;
+    private String nickname;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn (name="topicid")
     private Topic topicId;
@@ -16,10 +16,9 @@ public class Message {
     public Message() {
     }
 
-    public Message(String message, String user) {
-        this.message = message;
-        this.user = user;
-
+    public Message(String content, String nickname) {
+        this.content = content;
+        this.nickname = nickname;
     }
 
     public int getId() {
@@ -30,12 +29,20 @@ public class Message {
         this.id = id;
     }
 
-    public String getMessage() {
-        return message;
+    public String getContent() {
+        return content;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
     public Topic getTopicId() {
@@ -54,19 +61,12 @@ public class Message {
 //        this.topicId = topicId;
 //    }
 
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
 
     @Override
     public String toString() {
         return "Message{" +
-                ", message='" + message + '\'' +
-                ", user='" + user + '\'' +
+                "content='" + content + '\'' +
+                ", nickname='" + nickname + '\'' +
                 '}';
     }
 }
