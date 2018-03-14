@@ -10,10 +10,6 @@ import java.util.List;
 public interface MessageRepository extends CrudRepository<Message, Integer> {
 
     List<Message> findByTopicId(Topic topicId); //hakee messaget topicId:n perusteella @Olli
-<<<<<<< HEAD
-    List<Message> findByContentContains(String content);
-=======
-    List<Message> findByContentContains(String message);
->>>>>>> 00e069148078aaf3c410c654c8ec67c6b205c960
-}
+    List<Message> findByContentContains(String content);}
+
 
