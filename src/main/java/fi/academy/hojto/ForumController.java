@@ -48,6 +48,7 @@ public class ForumController {
         return "topic";
     }
 
+    //Uusi postaus @Outi, Heidi
     @GetMapping("/posts")
     public String specificPost(@RequestParam(name = "topicId") int topicId, Model model) {
         List<Message> postlist = mrepo.messagesByTopics(topicId);
@@ -55,21 +56,6 @@ public class ForumController {
         model.addAttribute("message", new Message());
         return "post";
     }
-
-    //Uusi postaus @Outi, Heidi
-//    @PostMapping("/newpost")
-//    public String lomakekasittelija(@RequestParam(name = "topicId") int topicId, Model model) {
-//        model.addAttribute("message", new Message());
-////        mrepo.save(message);
-//        return "post";
-//
-//    }
-
-//    @GetMapping("/post")
-//    public String newPost(Model model) {
-//        model.addAttribute("message", new Message());
-//        return "post";
-//    }
 
     @PostMapping("/posts")
     public String postSubmit(@ModelAttribute Message message) {
