@@ -65,12 +65,8 @@ public class Message {
     @Override
     public String toString() {
         return "Message{" +
-                "id=" + id +
                 ", message='" + message + '\'' +
-                ", topicId=" + topicId +
                 ", user='" + user + '\'' +
                 '}';
     }
-
-
 }
