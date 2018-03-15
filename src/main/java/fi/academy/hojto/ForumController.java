@@ -74,7 +74,6 @@ public class ForumController {
         model.addAttribute("postlist", postlist);
         return "post";
     }
-    
 }
 
 
