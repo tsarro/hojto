@@ -32,14 +32,14 @@ h3 {
 
 table {
     background: navajowhite;
-    width: 50%;
+    width: 70%;
     border-style: solid;
     border-width: 10px 2px 10px 2px;
     /*border: 2px solid black;*/
     /*border-top-width: 15px;*/
     transform: translate(400px,25px);
     opacity: 0.7;
-    padding: 4em;
+    padding: 4em auto;
     border-radius: 2px;
     border-collapse: collapse;
 }
