@@ -12,12 +12,14 @@
         <td><a id="topicheader" th:href="@{/posts}+'?topicId='+${topic.getId()}" th:text="${topic.getHeader()}"/>
             <div id="previewtext" th:text="${topic.getFirstmessage()}"/>
             <div th:if="${topic.getMessages() != null}">
-                <div th:text="${topic.getMessages().size() + 1}"></div>
-                <div th:text="${topic.getMessages().get(topic.getMessages().size() - 1).getNickname()}"></div>
-
+                <div th:if="${topic.messages.size() != 0} ">
+                    <div th:text="${topic.getMessages().size() + 1}"></div>
+                    <div th:text="${topic.getMessages().get(topic.getMessages().size() - 1).getNickname()}"></div>
+                </div>
+                <div th:unless="${topic.getMessages().size()}"></div>
+                    <div text="1"></div>
             </div>
             <div th:unless="${topic.getMessages()}">
-                <div th:text="1"></div>
                 <div th:text="${topic.getUser()}"></div>
             </div>
         </td>
