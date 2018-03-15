@@ -44,7 +44,19 @@ public class ForumController {
     // id määrittää minkä category id:n topicit haetaan. @Olli
     @GetMapping("/topics")
     public String specificTopic2(@RequestParam int id, Model model) {
+        Topic topic = new Topic(); topic.setCategoryId(id);
         model.addAttribute("topiclist", trepo.findByCategoryId(id));
+        model.addAttribute("topic", topic);
+        return "topic";
+    }
+
+    @PostMapping("/newtopics")
+    public String newTopic(Model model, Topic topic) {
+        Iterable<Topic> topic1 = trepo.findByCategoryId(topic.getCategoryId());
+        topic.setCategoryId(topic.getCategoryId());
+        trepo.save(topic);
+        model.addAttribute("topic", topic);
+        model.addAttribute("topics", trepo.findByCategoryId(topic.getCategoryId()));
         return "topic";
     }
 
@@ -74,6 +86,8 @@ public class ForumController {
         model.addAttribute("postlist", postlist);
         return "post";
     }
+
+
 }
 
 

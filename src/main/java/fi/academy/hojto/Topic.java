@@ -1,7 +1,7 @@
 package fi.academy.hojto;
 
-import javax.persistence.*;
-import java.util.List;
+        import javax.persistence.*;
+        import java.util.List;
 
 @Entity
 public class Topic {
