@@ -26,7 +26,8 @@ h2 {
 }
 
 h3 {
-    alignment: top;
+    alignment: center;
+    font-size: 30px;
 }
 
 table {
@@ -49,9 +50,6 @@ a {
     padding: 2em;
 }
 
-div {
-    padding: 3em auto;
-}
 
 .topicheader {
     font-size: 1.2em;
