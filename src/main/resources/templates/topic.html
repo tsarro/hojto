@@ -5,23 +5,29 @@
     <meta charset="UTF-8"/>
 
     <link rel="stylesheet" href="style.css" th:href="@{/style.css}"/>
-<body>
+<body onload="clear()">
 <table>
     <tr th:each="topic : ${topiclist}">
-        <td><a id="topicheader" th:href="@{/posts}+'?topicId='+${topic.getId()}" th:text="${topic.getHeader()}"/><div id="previewtext" th:text="${topic.getFirstmessage()}"/></td>
+        <td><a class="topicheader" th:href="@{/posts}+'?topicId='+${topic.getId()}" th:text="${topic.getHeader()}"/><div id="previewtext" th:text="${topic.getFirstmessage()}"/></td>
         <td><a th:href="'/deleteTopicById?id='+${topic.getId()}+'&id='+${topic.id}"><input type="button" value="Poista"  class="button btn btn-danger"/></a></td>
     </tr>
 
-
 </table>
+<script type="text/javascript">
+    function clear() {
+        document.submitform.headline.value="";
+        document.submitform.message.value="";
+        document.submitform.user.value="";
+    }
+</script>
 <table>
-    <td id="topicheader">
+    <td class="topicheader">
     <form action="#" th:action="@{/newtopics}" th:object="${topic}" th:method="post">
         <input th:type="hidden" th:name="categoryId" th:value="*{categoryId}"/>
-        <p>Aihe: <input type="text" size="100" th:field="*{header}" /></p>
-        <p>Viesti: <input type="text" size="100" th:field="*{firstmessage}" /></p>
-        <p>Käyttäjänimi: <input type="text" th:field="*{user}" /></p>
-        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+        <p>Aihe: <input type="text" id="headline" name="headline" size="100" th:field="*{header}" /></p>
+        <p>Viesti: <input type="text" id="message" name="message" size="100" th:field="*{firstmessage}" /></p>
+        <p>Käyttäjänimi: <input type="text" id="user" name="user" th:field="*{user}" /></p>
+        <p><input type="submit" value="Lähetä"/></p>
     </form>
     </td>
 </table>
