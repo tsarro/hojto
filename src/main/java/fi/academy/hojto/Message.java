@@ -1,6 +1,8 @@
 package fi.academy.hojto;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Entity
@@ -9,6 +11,7 @@ public class Message {
     private int id;
     private String content;
     private String nickname;
+    private String mtimestamp;
     @ManyToOne(cascade = {CascadeType.PERSIST})
     @JoinColumn (name="topicid")
     private Topic topicId;
@@ -19,6 +22,12 @@ public class Message {
     public Message(String content, String nickname) {
         this.content = content;
         this.nickname = nickname;
+    }
+
+    public Message(String content, String nickname, String mtimestamp) {
+        this.content = content;
+        this.nickname = nickname;
+        this.mtimestamp = mtimestamp;
     }
 
     public int getId() {
@@ -53,7 +62,15 @@ public class Message {
         this.topicId = topicId;
     }
 
-//        public int getTopicId() {
+    public String getMtimestamp() {
+        return mtimestamp;
+    }
+
+    public void setMtimestamp(String mtimestamp) {
+        this.mtimestamp = mtimestamp;
+    }
+
+    //        public int getTopicId() {
 //        return topicId;
 //    }
 //
@@ -71,4 +88,5 @@ public class Message {
 //                ", topicId=" + topicId +
                 '}';
     }
+
 }

@@ -1,6 +1,8 @@
 package fi.academy.hojto;
 
         import javax.persistence.*;
+        import java.time.LocalDate;
+        import java.time.LocalDateTime;
         import java.util.List;
 
 @Entity
@@ -12,6 +14,7 @@ public class Topic {
     private String header;
     private String user;
     private String firstmessage;
+    private String ttimestamp;
     @OneToMany(mappedBy = "topicId")
     private List<Message> messages;
 
@@ -23,6 +26,14 @@ public class Topic {
         this.header = header;
         this.user = user;
         this.firstmessage = firstmessage;
+    }
+
+    public Topic(int categoryId, String header, String user, String firstmessage, String ttimestamp) {
+        this.categoryId = categoryId;
+        this.header = header;
+        this.user = user;
+        this.firstmessage = firstmessage;
+        this.ttimestamp = ttimestamp;
     }
 
     public int getId() {
@@ -71,6 +82,14 @@ public class Topic {
 
     public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
+    }
+
+    public String getTtimestamp() {
+        return ttimestamp;
+    }
+
+    public void setTtimestamp(String ttimestamp) {
+        this.ttimestamp = ttimestamp;
     }
 
     @Override
