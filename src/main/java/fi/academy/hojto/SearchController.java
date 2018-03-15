@@ -41,6 +41,11 @@ public class SearchController {
     @GetMapping("/alkuun")
     public String takasAalkuun () {
         return "frontpage";
+    }
 
+    @GetMapping("/deleteMessageById")
+    public String deleteMessage(@RequestParam(name = "id") int id) {
+        mrepo.deleteMessageById(id);
+        return "redirect:post";
     }
 }
