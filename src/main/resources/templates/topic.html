@@ -22,7 +22,7 @@
 </script>
 <table>
     <td class="topicheader">
-    <form action="#" th:action="@{/newtopics}" th:object="${topic}" th:method="post">
+    <form action="#" id="submitform" name="submitform" th:action="@{/newtopics}" th:object="${topic}" th:method="post">
         <input th:type="hidden" th:name="categoryId" th:value="*{categoryId}"/>
         <p>Aihe: <input type="text" id="headline" name="headline" size="100" th:field="*{header}" /></p>
         <p>Viesti: <input type="text" id="message" name="message" size="100" th:field="*{firstmessage}" /></p>
