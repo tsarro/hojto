@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Controller
@@ -39,13 +40,21 @@ public class SearchController {
 
     //sivuille lisätty nappi päävalikkoon, joka löytää alkuun maååingin ja palauttaa etusivun
     @GetMapping("/alkuun")
-    public String takasAalkuun () {
+    public String takasAalkuun() {
         return "frontpage";
     }
-
+//Yhden messagen poisto @Heidi & @Juuso
+    @Transactional
     @GetMapping("/deleteMessageById")
-    public String deleteMessage(@RequestParam(name = "id") int id) {
+    public String deleteMessage(@RequestParam(name = "id") int id,@RequestParam(name = "topicId") int topicId) {
         mrepo.deleteMessageById(id);
-        return "redirect:post";
+        return "redirect:posts?topicId="+topicId;
+    }
+    //Yhden topicin poisto @Heidi & @Juuso
+    @Transactional
+    @GetMapping("/deleteTopicById")
+    public String deleteTopic(@RequestParam(name = "id") int id) {
+        trepo.deleteTopicById(id);
+        return "redirect:topics?id="+id;
     }
 }
