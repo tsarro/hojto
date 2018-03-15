@@ -25,7 +25,9 @@ h2 {
     font-size: 34px;
 }
 
-
+h3 {
+    alignment: top;
+}
 
 table {
     background: navajowhite;
@@ -43,8 +45,13 @@ table {
 
 a {
     color: black;
+    font-size: 20px;
+    padding: 2em;
 }
 
+div {
+    padding: 3em auto;
+}
 
 .topicheader {
     font-size: 1.2em;
@@ -68,9 +75,14 @@ a {
 tr {
     color: black;
     border-bottom: solid 1px darkgrey;
+    padding: 3em auto;
 }
 
 tr:hover {
     background: silver;
 
+}
+
+td {
+    padding: 3em auto;
 }
