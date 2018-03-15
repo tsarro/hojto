@@ -17,6 +17,7 @@
     <tr th:each="topic : ${topiclist}">
 
         <td><a id="topicheader" th:href="@{/posts}+'?topicId='+${topic.getId()}" th:text="${topic.getHeader()}"/>
+            <p class="timestamp" th:text="${topic.getTtimestamp()}"/>
             <div id="previewtext" th:text="${topic.getFirstmessage()}"/>
             <div id="lastuser" th:if="${topic.getMessages() != null}">
                 <div th:if="${topic.messages.size() != 0} ">
@@ -37,9 +38,9 @@
         <td><a th:href="'/deleteTopicById?id='+${topic.getId()}+'&id='+${topic.id}"><input type="button" value="Poista"
                                                                                            class="button btn btn-danger"/></a>
         </td>
-        <td>
-            <div class="timestamp" th:text="${topic.getTtimestamp()}"></div>
-        </td>
+
+            <!--<div class="timestamp" th:text="${topic.getTtimestamp()}"></div>-->
+
     </tr>
 
 </table>
