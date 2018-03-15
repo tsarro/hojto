@@ -40,7 +40,7 @@ public class HojtoApplication {
 	protected void luoTestiTopic(TopicRepository topicRepository, MessageRepository messageRepository) {
 		Topic t = new Topic(2, "Olen hellyydenkipeä", "Juuso", "Aimo Pohjanmaalta etsii tosi tarkoituksella omaa neitä X:äänsä. Plussaa jos olet javaguru, sillä minä olen scrum master ja haluan perustaa oman devaajatiimin. Vapaa-aika menee hamsteria ulkoiluttaessa ja tanhun parissa.");
 		topicRepository.save(t);
-		Topic e = new Topic(1, "Java-koodaria etsitään", "Outi", "Etsin javakoodaria. Mielellään joku joka ei ole kauhean hyvä, sillä tykkään naureskella bugiselle koodille. Voit koodata vaikka Skypen välityksellä, joten sijainnillasi ei ole väliä.");
+		Topic e = new Topic(1, "Java-koodaria etsitään", "Pupu", "Etsin javakoodaria. Mielellään joku joka ei ole kauhean hyvä, sillä tykkään naureskella bugiselle koodille. Voit koodata vaikka Skypen välityksellä, joten sijainnillasi ei ole väliä.");
 		Message o = new Message("Minä typotan todalla pajon aamuisn enenn kuin olen sanut ekai kahvikuppostz. Lisää skybessä. Oma nikki on Pumpatta.","Tuomo");
 		o.setTopicId(e);
 		messageRepository.save(o);
