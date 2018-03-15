@@ -12,20 +12,27 @@
         <td><a th:href="'/deleteTopicById?id='+${topic.getId()}+'&id='+${topic.id}"><input type="button" value="Poista"  class="button btn btn-danger"/></a></td>
     </tr>
 
-    <form action="#" th:action="@{/newtopics}" th:object="${topic}" th:method="post">
-        <input th:type="hidden" th:name="categoryId" th:value="*{categoryId}"/>
-        <p>Käyttäjänimi: <input type="text" th:field="*{user}" /></p>
-        <p>Aihe: <input type="text" th:field="*{header}" /></p>
-        <p>Viesti: <input type="text" th:field="*{firstmessage}" /></p>
-        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-    </form>
-
-    <form action="#" th:action="@{/alkuun}">
-        <tr>
-            <td><button type="submit">Päävalikko</button></td>
-        </tr>
-    </form>
 
 </table>
+<table>
+    <td id="topicheader">
+    <form action="#" th:action="@{/newtopics}" th:object="${topic}" th:method="post">
+        <input th:type="hidden" th:name="categoryId" th:value="*{categoryId}"/>
+        <p>Aihe: <input type="text" size="100" th:field="*{header}" /></p>
+        <p>Viesti: <input type="text" size="100" th:field="*{firstmessage}" /></p>
+        <p>Käyttäjänimi: <input type="text" th:field="*{user}" /></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+    </td>
+</table>
+
+<form action="#" th:action="@{/alkuun}">
+
+    <td><button type="submit">Päävalikko</button></td>
+</form>
+
+
+
+
 </body>
 </html>
