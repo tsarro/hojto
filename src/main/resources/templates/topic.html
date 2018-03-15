@@ -8,7 +8,24 @@
 <body onload="clear()">
 <table>
     <tr th:each="topic : ${topiclist}">
-        <td><a class="topicheader" th:href="@{/posts}+'?topicId='+${topic.getId()}" th:text="${topic.getHeader()}"/><div id="previewtext" th:text="${topic.getFirstmessage()}"/></td>
+
+        <td><a id="topicheader" th:href="@{/posts}+'?topicId='+${topic.getId()}" th:text="${topic.getHeader()}"/>
+            <div id="previewtext" th:text="${topic.getFirstmessage()}"/>
+            <div th:if="${topic.getMessages() != null}">
+                <div th:if="${topic.messages.size() != 0} ">
+                    <div th:text="${topic.getMessages().size() + 1}"></div>
+                    <div th:text="${topic.getMessages().get(topic.getMessages().size() - 1).getNickname()}"></div>
+                </div>
+                <div th:unless="${topic.getMessages().size()}"></div>
+                    <div text="1"></div>
+            </div>
+            <div th:unless="${topic.getMessages()}">
+                <div th:text="${topic.getUser()}"></div>
+            </div>
+        </td>
+
+        <!--<td><a class="topicheader" th:href="@{/posts}+'?topicId='+${topic.getId()}" th:text="${topic.getHeader()}"/><div id="previewtext" th:text="${topic.getFirstmessage()}"/></td>-->
+
         <td><a th:href="'/deleteTopicById?id='+${topic.getId()}+'&id='+${topic.id}"><input type="button" value="Poista"  class="button btn btn-danger"/></a></td>
         <td><div class="topicheader" th:text="${topic.getTtimestamp()}"></div></td>
     </tr>

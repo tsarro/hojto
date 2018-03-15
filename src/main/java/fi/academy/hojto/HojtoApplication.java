@@ -33,7 +33,7 @@ public class HojtoApplication {
 		u.setConfirmationToken("d78rbgs");
 		u.setPassword("m");
 		u.setEmail("maija@hotmail.com");
-		u.setName("Maija");
+		u.setNickname("Maija");
 		userRepository.save(u);
 	}
 
