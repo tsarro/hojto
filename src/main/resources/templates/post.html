@@ -8,7 +8,13 @@
 <body onload="clear()">
 
 
-
+<nav>
+    <form action="#" th:action="@{/alkuun}">
+        <tr>
+            <td><button type="submit">Päävalikko</button></td>
+        </tr>
+    </form>
+</nav>
 <table>
     <h3 th:object="${topicstarter}" th:method="post" align="middle">
         <div class="topicheader" th:text="${topicstarter.get().getHeader()}"/></h3>
@@ -16,14 +22,14 @@
     <tr th:object="${topicstarter}" th:method="post">
         <td><div class="topicheader" th:text="${topicstarter.get().getUser()}"/></td>
         <td><div class="topicheader" th:text="${topicstarter.get().getFirstmessage()}"/></td>
-        <td><div class="topicheader" th:text="${topicstarter.get().getTtimestamp()}"></div></td>
+        <td><div class="timestamp" th:text="${topicstarter.get().getTtimestamp()}"></div></td>
 
     </tr>
     <tr th:each="post : ${postlist}">
         <td><div class="topicheader" th:text="${post.getNickname()}"/></td>
         <td><div class="topicheader" th:text="${post.getContent()}"/>
             <a th:href="'/deleteMessageById?id='+${post.getId()}+'&topicId='+${post.topicId.id}"><input type="button" value="Poista"  class="button btn btn-danger"/></a></td>
-        <td><div class="topicheader" th:text="${post.getMtimestamp()}"></div></td>
+        <td><div class="timestamp" th:text="${post.getMtimestamp()}"></div></td>
     </tr>
 
 </table>
@@ -55,12 +61,6 @@
 </script>
 
 
-
-<form action="#" th:action="@{/alkuun}">
-    <tr>
-        <td><button type="submit">Päävalikko</button></td>
-    </tr>
-</form>
 
 </body>
 </html>

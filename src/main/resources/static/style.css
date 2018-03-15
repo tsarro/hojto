@@ -86,8 +86,33 @@ td {
 }
 
 #lastuser {
-    float: right;
+    float:left; width:100px; height:100px;
+    font-size: 12px;
 }
+
+.lastmessage {
+    font-weight: bold;
+}
+
+.lastwriter {
+    font-weight: bold;
+}
+
+.timestamp {
+    font-size: 15px;
+}
+
+/*#lastuser {*/
+    /*display: inline-block;*/
+/*}*/
+
+/*#lastmessage{*/
+    /*float: left;*/
+/*}*/
+
+/*#lastwriter {*/
+    /*float: right;*/
+/*}*/
 
 
 

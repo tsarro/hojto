@@ -6,6 +6,13 @@
 
     <link rel="stylesheet" href="style.css" th:href="@{/style.css}"/>
 <body onload="clear()">
+<nav>
+    <form action="#" th:action="@{/alkuun}">
+        <tr>
+            <td><button type="submit">Päävalikko</button></td>
+        </tr>
+    </form>
+</nav>
 <table>
     <tr th:each="topic : ${topiclist}">
 
@@ -13,8 +20,9 @@
             <div id="previewtext" th:text="${topic.getFirstmessage()}"/>
             <div id="lastuser" th:if="${topic.getMessages() != null}">
                 <div th:if="${topic.messages.size() != 0} ">
-                    <p>Viestejä: </p><div th:text="${topic.getMessages().size() + 1}"></div>
-                    <p>Kirjoittaja: </p><div th:text="${topic.getMessages().get(topic.getMessages().size() - 1).getNickname()}"></div>
+                    <p class="lastmessage">Viestejä: </p><p th:text="${topic.getMessages().size() + 1}"></p>
+                    <p class="lastwriter">Kirjoittaja:</p>
+                    <div th:text="${topic.getMessages().get(topic.getMessages().size() - 1).getNickname()}"></div>
                 </div>
                 <div th:unless="${topic.getMessages().size()}"></div>
                 <div text="1"></div>
@@ -30,7 +38,7 @@
                                                                                            class="button btn btn-danger"/></a>
         </td>
         <td>
-            <div class="topicheader" th:text="${topic.getTtimestamp()}"></div>
+            <div class="timestamp" th:text="${topic.getTtimestamp()}"></div>
         </td>
     </tr>
 
@@ -71,12 +79,6 @@
 </form>
 
 
-<form action="#" th:action="@{/alkuun}">
-
-    <td>
-        <button type="submit">Päävalikko</button>
-    </td>
-</form>
 
 
 </body>
