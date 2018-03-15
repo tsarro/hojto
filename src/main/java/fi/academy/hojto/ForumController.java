@@ -20,24 +20,10 @@ public class ForumController {
     @Autowired
     UserRepository urepo;
 
-    //haetaan kaikki topicit @Juuso
-    /*@GetMapping("/topics")
-    public String allTopics(Model model) {
-        model.addAttribute("topiclist", trepo.findAll());
-        return "topic";
-    }*/
-
     @GetMapping("/frontpage")
     public String jotain(Model model) {
         return "frontpage";
     }
-
-    /*@GetMapping("/topics1")
-    public String specificTopic1(Model model) {
-        model.addAttribute("topiclist", trepo.findByCategoryId(1));
-        return "topic";
-    }*/
-
 
     // Haetaan kaikki topicit tietystä kategoriasta @Olli,Outi,Heidi,Juuso
     // Muutettu hakua niin, että käytetään samaa mappingiä kaikissa linkeissä,
@@ -50,13 +36,15 @@ public class ForumController {
         return "topic";
     }
 
+    //Uuden topicin luominen @Outi @Heidi @Juuso
     @PostMapping("/newtopics")
     public String newTopic(Model model, Topic topic) {
-        Iterable<Topic> topic1 = trepo.findByCategoryId(topic.getCategoryId());
-        topic.setCategoryId(topic.getCategoryId());
+        //Tehdään uusi topic
         trepo.save(topic);
+        //Haetaan tämän jälkeen sisältö
         model.addAttribute("topic", topic);
-        model.addAttribute("topics", trepo.findByCategoryId(topic.getCategoryId()));
+        model.addAttribute("topiclist", trepo.findByCategoryId(topic.getCategoryId()));
+
         return "topic";
     }
 
