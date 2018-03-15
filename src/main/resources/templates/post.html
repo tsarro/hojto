@@ -15,11 +15,14 @@
         </tr>
     </form>
 </nav>
+
 <table>
     <h3 th:object="${topicstarter}" th:method="post" align="middle">
-        <div class="topicheader" th:text="${topicstarter.get().getHeader()}"/></h3>
+        <div class="topicheader" th:text="${topicstarter.get().getHeader()}"/>
+    </h3>
 
     <tr th:object="${topicstarter}" th:method="post">
+
         <td><div class="topicheader" th:text="${topicstarter.get().getUser()}"/></td>
         <td><div class="topicheader" th:text="${topicstarter.get().getFirstmessage()}"/></td>
         <td><div class="timestamp" th:text="${topicstarter.get().getTtimestamp()}"></div></td>
@@ -30,33 +33,65 @@
         <td><div class="topicheader" th:text="${post.getContent()}"/>
             <a th:href="'/deleteMessageById?id='+${post.getId()}+'&topicId='+${post.topicId.id}"><input type="button" value="Poista"  class="button btn btn-danger"/></a></td>
         <td><div class="timestamp" th:text="${post.getMtimestamp()}"></div></td>
+
+        <td>
+            <div class="topicheader" th:text="${topicstarter.get().getUser()}"/>
+        </td>
+        <td>
+            <div class="topicheader" th:text="${topicstarter.get().getFirstmessage()}"/>
+        </td>
+        <td>
+            <div class="topicheader" th:text="${topicstarter.get().getTtimestamp()}"></div>
+        </td>
+
+    </tr>
+    <tr th:each="post : ${postlist}">
+        <td>
+            <div class="topicheader" th:text="${post.getNickname()}"/>
+        </td>
+        <td>
+            <div class="topicheader" th:text="${post.getContent()}"/>
+            <a th:href="'/deleteMessageById?id='+${post.getId()}+'&topicId='+${post.topicId.id}"><input type="button"
+                                                                                                        value="Poista"
+                                                                                                        class="button btn btn-danger"/></a>
+        </td>
+        <td>
+            <div class="topicheader" th:text="${post.getMtimestamp()}"></div>
+        </td>
+
     </tr>
 
 </table>
 
-<table>
-    <td class="topicheader">
-        <form name="submitform" id="submitform" action="#" th:action="@{/newposts}" th:object="${message}" th:method="post">
-            <input th:type="hidden" th:name="topicId.id" th:value="*{topicId.id}"/>
+<form name="submitform" id="submitform" action="#" th:action="@{/newposts}" th:object="${message}"
+      th:method="post">
+    <table class="topicheader">
+        <input th:type="hidden" th:name="topicId.id" th:value="*{topicId.id}"/>
+        <tr>
             <!--<p>Id: <input type="text" th:value="*{topicId}" th:field="*{topicId}"/></p>-->
-            <p>Viesti: <input type="text" size="100" id="message" name="message"  th:field="*{content}" /></p>
-            <p>Käyttäjänimi: <input type="text" id="user" size="100" name="user" th:field="*{nickname}" /></p>
-            <p><input type="submit" value="Lähetä"/></p>
-        </form>
-    </td>
+            <td>Viesti:</td>
+            <td><input type="text" size="100" id="message" name="message" th:field="*{content}"/></td>
+        </tr>
+        <tr>
+            <td>Käyttäjänimi:</td>
+            <td><input type="text" id="user" size="100" name="user" th:field="*{nickname}"/></td>
+        <tr>
+            <td><input th:colspan="2" type="submit" value="Lähetä"/></td>
+        </tr>
 
-</table>
 
+    </table>
+</form>
 <img th:src="@{/images/CupidoSmall2.png}"/>
 
 <!--Formi uudelle viestille @Heidi @Outi-->
 <!--<p th:object="${idtest}" th:method="post">-->
-    <!--<div th:text="${idtest.get().getId()}"/></p>-->
+<!--<div th:text="${idtest.get().getId()}"/></p>-->
 
 <script type="text/javascript">
     function clear() {
-        document.submitform.user.value="";
-        document.submitform.message.value="";
+        document.submitform.user.value = "";
+        document.submitform.message.value = "";
     }
 </script>
 
