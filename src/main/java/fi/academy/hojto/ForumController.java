@@ -6,6 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -50,6 +53,10 @@ public class ForumController {
     //Uuden topicin luominen @Outi @Heidi @Juuso
     @PostMapping("/newtopics")
     public String newTopic(Model model, Topic topic) {
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm dd-MM-yyyy");
+        String formatDateTime = now.format(formatter);
+        topic.setTtimestamp(formatDateTime);
         //Tehdään uusi topic
         trepo.save(topic);
         //Haetaan tämän jälkeen sisältö
@@ -79,6 +86,10 @@ public class ForumController {
     public String postSubmit(Model model, Message message) {
         Optional<Topic> topic = trepo.findById(message.getTopicId().getId());
         message.setTopicId(topic.get());
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm dd-MM-yyyy");
+        String formatDateTime = now.format(formatter);
+        message.setMtimestamp(formatDateTime);
         mrepo.save(message);
         model.addAttribute("topicstarter", topic);
         List<Message> postlist = mrepo.findByTopicId(topic.get());
