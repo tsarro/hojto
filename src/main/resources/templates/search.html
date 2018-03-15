@@ -6,16 +6,25 @@
 
     <link rel="stylesheet" href="style.css" th:href="@{/style.css}"/>
 <body>
-<form th:action="@{/searchResult}" th:object="${msg}" th:method="post">
-    <h3>Hae viestejä tekstin perusteella</h3>
-    <input th:field="*{content}"/><input type="submit"/>
-</form>
 
 <form action="#" th:action="@{/alkuun}">
     <tr>
-        <td><button type="submit">Hae!</button></td>
+        <td><button type="submit">Päävalikko</button></td>
     </tr>
 </form>
+
+
+<form th:action="@{/searchResult}" th:object="${msg}" th:method="post">
+    <table class="topicheader">
+        <tr>
+            <td style="width: 20% ">Viestien haku:</td>
+
+            <td><input size ="50" th:field="*{content}"/> <input value="Hae!" type="submit"/></td>
+    </tr>
+    </table>
+</form>
+
+
 </body>
 </html>
 
