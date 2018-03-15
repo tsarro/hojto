@@ -30,6 +30,7 @@ public class HojtoApplication {
 	protected void luontiYksittain(UserRepository userRepository) {
 		User u = new User();
 		u.setEnabled(true);
+		u.setConfirmationToken("d78rbgs");
 		u.setPassword("m");
 		u.setEmail("maija@hotmail.com");
 		u.setName("Maija");
