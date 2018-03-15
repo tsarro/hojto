@@ -4,8 +4,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,19 +27,18 @@ public class HojtoApplication {
 
 	protected void luontiYksittain(UserRepository userRepository) {
 		User u = new User();
-		u.setEnabled(true);
-		u.setConfirmationToken("d78rbgs");
-		u.setPassword("m");
-		u.setEmail("maija@hotmail.com");
+
 		u.setNickname("Maija");
 		userRepository.save(u);
 	}
 
 	protected void luoTestiTopic(TopicRepository topicRepository, MessageRepository messageRepository) {
-		Topic t = new Topic(2, "Olen hellyydenkipeä", "Juuso", "Aimo Pohjanmaalta etsii tosi tarkoituksella omaa neitä X:äänsä. Plussaa jos olet javaguru, sillä minä olen scrum master ja haluan perustaa oman devaajatiimin. Vapaa-aika menee hamsteria ulkoiluttaessa ja tanhun parissa.","08:45 23-12-2017");
+		Topic t = new Topic(2, "Olen hellyydenkipeä", "Aimo", "Aimo Pohjanmaalta etsii tosi tarkoituksella omaa neitä X:äänsä. Plussaa jos olet javaguru, sillä minä olen scrum master ja haluan perustaa oman devaajatiimin. Vapaa-aika menee hamsteria ulkoiluttaessa ja tanhun parissa.","08:45 23-12-2017");
 		topicRepository.save(t);
-		Topic e = new Topic(1, "Java-koodaria etsitään", "Outi", "Etsin javakoodaria. Mielellään joku joka ei ole kauhean hyvä, sillä tykkään naureskella bugiselle koodille. Voit koodata vaikka Skypen välityksellä, joten sijainnillasi ei ole väliä.","10:36 25-12-2017");
-		Message o = new Message("Minä typotan todalla pajon aamuisn enenn kuin olen sanut ekai kahvikuppostz. Lisää skybessä. Oma nikki on Pumpatta.","Tuomo","11:25 25-12-2017");
+		Topic e = new Topic(1, "Java-koodaria etsitään", "Pupu", "Etsin javakoodaria. Mielellään joku joka ei ole kauhean hyvä, sillä tykkään naureskella bugiselle koodille. Voit koodata vaikka Skypen välityksellä, joten sijainnillasi ei ole väliä.", "10:15 14-02-2015");
+		Message o = new Message("Minä typotan todalla pajon aamuisn enenn kuin olen sanut ekai kahvikuppostz. Lisää skybessä. Oma nikki on Pumpatta.","Tuomo", "15:36 05-12-2017");
+
+
 		o.setTopicId(e);
 		messageRepository.save(o);
 		topicRepository.save(e);

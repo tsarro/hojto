@@ -22,15 +22,19 @@
                 <div class="topicheader" th:text="${post.getContent()}"/>
             </td>
 
-            <form action="#" th:action="@{/alkuun}">
-        <tr>
-            <td><button type="submit">Päävalikko</button></td>
-        </tr>
-        </form>
+
+
 
         </tr>
     </div>
+
+
 </table>
+<form action="#" th:action="@{/alkuun}">
+    <tr>
+        <td><button type="submit">Päävalikko</button></td>
+    </tr>
+</form>
 
 </body>
 </html>
