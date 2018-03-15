@@ -2,8 +2,6 @@
 @import url("https://fonts.googleapis.com/css?family=Mr+De+Haviland");
 
 body {
-    /*margin-left: 5%;*/
-    /*margin-right: 5%;*/
     background: url("/images/redlight.png");
     background-size: cover;
     background-attachment: fixed;
@@ -33,10 +31,8 @@ h3 {
 }
 
 table {
-    padding-right: 20px;
-    padding-left: 20px;
     background: navajowhite;
-    width: 75%;
+    width: 50%;
     border-style: solid;
     border-width: 10px 2px 10px 2px;
     /*border: 2px solid black;*/
@@ -77,7 +73,7 @@ a {
 tr {
     color: black;
     border-bottom: solid 1px darkgrey;
-    padding: 3em auto;
+    padding: 10px;
 }
 
 tr:hover {
@@ -86,5 +82,5 @@ tr:hover {
 }
 
 td {
-    padding: 3em auto;
+    padding: 20px;
 }

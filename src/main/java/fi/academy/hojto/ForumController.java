@@ -22,7 +22,17 @@ public class ForumController {
 
     @GetMapping("/frontpage")
     public String jotain(Model model) {
+        model.addAttribute("topic1", trepo.findByCategoryId(1).iterator().next());
         return "frontpage";
+    }
+
+    private int getLuku(int id) {
+        Iterable<Topic> t = trepo.findByCategoryId(id);
+        int luku = 0;
+        while(t.iterator().hasNext()) {
+            luku++;
+        }
+        return luku;
     }
 
     // Haetaan kaikki topicit tietystä kategoriasta @Olli,Outi,Heidi,Juuso
@@ -30,7 +40,8 @@ public class ForumController {
     // id määrittää minkä category id:n topicit haetaan. @Olli
     @GetMapping("/topics")
     public String specificTopic2(@RequestParam int id, Model model) {
-        Topic topic = new Topic(); topic.setCategoryId(id);
+        Topic topic = new Topic();
+        topic.setCategoryId(id);
         model.addAttribute("topiclist", trepo.findByCategoryId(id));
         model.addAttribute("topic", topic);
         return "topic";
