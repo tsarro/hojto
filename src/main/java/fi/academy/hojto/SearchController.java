@@ -36,4 +36,11 @@ public class SearchController {
         model.addAttribute("postlist", m);
         return "searchresult";
     }
+
+    //sivuille lisätty nappi päävalikkoon, joka löytää alkuun maååingin ja palauttaa etusivun
+    @GetMapping("/alkuun")
+    public String takasAalkuun () {
+        return "frontpage";
+
+    }
 }
