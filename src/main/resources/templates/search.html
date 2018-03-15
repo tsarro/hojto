@@ -7,8 +7,15 @@
     <link rel="stylesheet" href="style.css" th:href="@{/style.css}"/>
 <body>
 <form th:action="@{/searchResult}" th:object="${msg}" th:method="post">
-    <h3>Hae viestejä sanan perusteella</h3>
+    <h3>Hae viestejä tekstin perusteella</h3>
     <input th:field="*{content}"/><input type="submit"/>
+</form>
+
+<form action="#" th:action="@{/alkuun}">
+    <tr>
+        <td><button type="submit">Päävalikko</button></td>
+    </tr>
 </form>
 </body>
 </html>
+
