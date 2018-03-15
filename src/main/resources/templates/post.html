@@ -5,11 +5,8 @@
     <meta charset="UTF-8"/>
 
     <link rel="stylesheet" href="style.css" th:href="@{/style.css}"/>
-<body>
+<body onload="clear()">
 
-
-<h3 th:object="${topicstarter}" th:method="POST">
-    <div th:text="${topicstarter.get().getHeader()}"/></h3>
 
 
 <table>
@@ -27,7 +24,18 @@
             <a th:href="'/deleteMessageById?id='+${post.getId()}+'&topicId='+${post.topicId.id}"><input type="button" value="Poista"  class="button btn btn-danger"/></a></td>
     </tr>
 
+</table>
 
+<table>
+    <td class="topicheader">
+        <form name="submitform" id="submitform" action="#" th:action="@{/newposts}" th:object="${message}" th:method="post">
+            <input th:type="hidden" th:name="topicId.id" th:value="*{topicId.id}"/>
+            <!--<p>Id: <input type="text" th:value="*{topicId}" th:field="*{topicId}"/></p>-->
+            <p>Viesti: <input type="text" size="100" id="message" name="message"  th:field="*{content}" /></p>
+            <p>Käyttäjänimi: <input type="text" id="user" size="100" name="user" th:field="*{nickname}" /></p>
+            <p><input type="submit" value="Lähetä"/></p>
+        </form>
+    </td>
 
 </table>
 
@@ -37,18 +45,20 @@
 <!--<p th:object="${idtest}" th:method="post">-->
     <!--<div th:text="${idtest.get().getId()}"/></p>-->
 
-<form action="#" th:action="@{/newposts}" th:object="${message}" th:method="post">
-    <input th:type="hidden" th:name="topicId.id" th:value="*{topicId.id}"/>
-    <!--<p>Id: <input type="text" th:value="*{topicId}" th:field="*{topicId}"/></p>-->
-    <p>Käyttäjänimi: <input type="text" th:field="*{nickname}" /></p>
-    <p>Message: <input type="text" th:field="*{content}" /></p>
-    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-</form>
+<script type="text/javascript">
+    function clear() {
+        document.submitform.user.value="";
+        document.submitform.message.value="";
+    }
+</script>
+
+
 
 <form action="#" th:action="@{/alkuun}">
     <tr>
         <td><button type="submit">Päävalikko</button></td>
     </tr>
 </form>
+
 </body>
 </html>

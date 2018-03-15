@@ -57,4 +57,5 @@ public class SearchController {
         trepo.deleteTopicById(id);
         return "redirect:topics?id="+id;
     }
+
 }
