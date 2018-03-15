@@ -84,3 +84,17 @@ tr:hover {
 td {
     padding: 20px;
 }
+
+input [type=text] {
+    padding: 60px;
+}
+.resizedTextbox {
+    width: 300px;
+    height: 150px;
+}
+
+/*#message {*/
+    /*width: 100px;*/
+    /*size: 200px;
+    }*/
+

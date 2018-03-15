@@ -33,7 +33,7 @@
         <form name="submitform" id="submitform" action="#" th:action="@{/newposts}" th:object="${message}" th:method="post">
             <input th:type="hidden" th:name="topicId.id" th:value="*{topicId.id}"/>
             <!--<p>Id: <input type="text" th:value="*{topicId}" th:field="*{topicId}"/></p>-->
-            <p>Viesti: <input type="text" size="100" id="message" name="message"  th:field="*{content}" /></p>
+            <p>Viesti: <input type="text" size="100"  id="message" class="resizedTextbox" name="message"  th:field="*{content}" /></p>
             <p>Käyttäjänimi: <input type="text" id="user" size="100" name="user" th:field="*{nickname}" /></p>
             <p><input type="submit" value="Lähetä"/></p>
         </form>
