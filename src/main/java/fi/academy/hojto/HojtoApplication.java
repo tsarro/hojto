@@ -37,11 +37,16 @@ public class HojtoApplication {
 		topicRepository.save(t);
 		Topic e = new Topic(1, "Java-koodaria etsitään", "Pupu", "Etsin javakoodaria. Mielellään joku joka ei ole kauhean hyvä, sillä tykkään naureskella bugiselle koodille. Voit koodata vaikka Skypen välityksellä, joten sijainnillasi ei ole väliä.", "10:15 14-02-2015");
 		Message o = new Message("Minä typotan todalla pajon aamuisn enenn kuin olen sanut ekai kahvikuppostz. Lisää skybessä. Oma nikki on Pumpatta.","Tuomo", "15:36 05-12-2017");
+		Topic k = new Topic(3, "Etsin iloista seuraa", "Jenna", "Pidän lenkkeilystä ja leffojen katselustas.", "12:03 12-03-2016");
+		Message v = new Message("Heippa! Minäkin tykkään nauraa", "Jatta", "15:08 12-03-2016");
 
 
 		o.setTopicId(e);
+		v.setTopicId(k);
 		messageRepository.save(o);
 		topicRepository.save(e);
+		messageRepository.save(v);
+		topicRepository.save(k);
 
 //		e = new Topic(2, "Kaipaan hellyyttä", "Olli", "Elämä on kovaa sillä teen työkseni betonia. Kaipaan hellyyttä ja pehmoleluja. Etenkin Care Bears -pehmolelut ovat kivoja. Itse tuunailen niitä paljon vapaa-ajalla ja lisäisen esim. Tonilta saaduilta konekivääreiltä. Voit tutustua kokoelmaani LinkedIn-profiilissani. Muista tykätä 5 kertaa ja kommentoida 3.");
 //		topicRepository.save(e);
