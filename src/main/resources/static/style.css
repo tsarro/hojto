@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css?family=Mr+De+Haviland");
 
 body {
-    background: url("/images/redlight.png");
+    background: url("/images/OutiLoveToo.jpg");
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
@@ -38,7 +38,7 @@ table {
     /*border: 2px solid black;*/
     /*border-top-width: 15px;*/
     transform: translate(100px,25px);
-    opacity: 0.7;
+    opacity: 0.8;
     padding: 4em auto;
     border-radius: 2px;
     border-collapse: collapse;
