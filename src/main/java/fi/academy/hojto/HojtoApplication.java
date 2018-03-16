@@ -53,13 +53,30 @@ public class HojtoApplication {
 
 		Topic l = new Topic(1, "Haetaan Cobol-osaajaa", "Janna", "Nuori nainen etsii kokenutta Cobol-osaajaa. Olethan koodaillut pankkien mainframeja jo ainakin 30 vuotta. Varma paikka tarjolla parhaalle.","15:30 28-12-2017");
 		Message n = new Message("Heippatirallaa. Tuomo täällä taas terve. Minähän olen keksinyt Cobol-kielen, joten uskon olevani sangen pätevä mihin ikinä meitä vanhoja herrota tarvitsetkin. Mutta Cobolia vain iltapäivinä.","Tuomo","16:30 28-12-2017");
-		Message b = new Message("Tässä etsittiin Cobol-taitoista miestä, mutta jos tarvitaan paras osaaja niin minä opiskelin cobolin eilen illalla samalla kun katsoin Sohvaperunoita. Kävin jo hackaamassa OP:n kaikki palvelimet ja nyt on massii.","Heidi","07:56 05-01-2018");
-		n.setTopicId(l);
-		b.setTopicId(l);
 		messageRepository.save(n);
-	//	messageRepository.save(b);
+		n.setTopicId(l);
+		Message b = new Message("Tässä etsittiin Cobol-taitoista miestä, mutta jos tarvitaan paras osaaja niin minä opiskelin cobolin eilen illalla samalla kun katsoin Sohvaperunoita. Kävin jo hackaamassa OP:n kaikki palvelimet ja nyt on massii.","Heidi","07:56 05-01-2018");
+
+		b.setTopicId(l);
+
+		messageRepository.save(b);
 		topicRepository.save(l);
 
+		Topic r = new Topic(5,"Henkilö henkilö etsii Henkilö henkilöä","Henkilö h","Elämästäni puuttu konstruktori. Haluan että elämäni on this.elämäni ja uson että konstruktroilla täytetty henkilö toisi uusia metodeja elämäni koko entiteetin kontrolloimiseen.","23:59 31-12-2017");
+
+		Message rm = new Message("Hej! Olen Henkilö hlö1. Tunnen kanssa olevani ikuisessa loopissa ja haluan päästä siitä eroon. Välillä tuntuu kuin elämäni olisi jonkun ulkopuolisen hyppysissä ja elämäni käsikirjoitettu valmiiksi. Samankaltaisiamme on paljon, ja olemme tapaamassa Koulu koulussa epochtime+12845639558 sekunnin kuluttua","hlö1","12:12 12-02-2018");
+		rm.setTopicId(r);
+//		messageRepository.save(rm);
+
+		rm = new Message("Älkää menkö kouluun. Edellinen koulu droppasi suureen monttuun ja kaikki katosivat. Olen löytänyt kommenteissa vihjeitä suuresta salaliitosta. Koko Hojto on yhtä huijausta ja koko maailmaa pyörittää viisi epäoliota.","olio","12:15 12-02-2018");
+		rm.setTopicId(r);
+		//messageRepository.save(rm);
+
+		rm = new Message("Hyvät hojtolaiset. Ei syytä huoleen. Ylläpito kyllä kuuntelee teitä ja haluaa auttaa. Tarjoamme torstaina kaikille mutakakkua.","admin","13:02 13-02-2018");
+		rm.setTopicId(r);
+	//	messageRepository.save(rm);
+
+		topicRepository.save(r);
 
 	}
 
@@ -72,7 +89,9 @@ public class HojtoApplication {
         o = new Message("Turo on mennyt Ollin vintille. On ehtinyt syödä hedelmäkarkit, mutta jäi kiinni betoniin. Käypä Aki hakemassa Turo pois.", "Toni","15:37 02-02-2018");
         o.setTopicId(t);
         messages.add(o);
-        messageRepository.saveAll(messages);
+
+
+
 
     }
 
