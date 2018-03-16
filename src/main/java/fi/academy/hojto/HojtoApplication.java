@@ -55,7 +55,7 @@ public class HojtoApplication {
 		Message n = new Message("Heippatirallaa. Tuomo täällä taas terve. Minähän olen keksinyt Cobol-kielen, joten uskon olevani sangen pätevä mihin ikinä meitä vanhoja herrota tarvitsetkin. Mutta Cobolia vain iltapäivinä.","Tuomo","16:30 28-12-2017");
 		messageRepository.save(n);
 		n.setTopicId(l);
-		Message b = new Message("Tässä etsittiin Cobol-taitoista miestä, mutta jos tarvitaan paras osaaja niin minä opiskelin cobolin eilen illalla samalla kun katsoin Sohvaperunoita. Kävin jo hackaamassa OP:n kaikki palvelimet ja nyt on massii.","Heidi","07:56 05-01-2018");
+		Message b = new Message("Tässä etsittiin Cobol-taitoista miestä, mutta jos tarvitaan paras osaaja niin minä opiskelin cobolin eilen illalla samalla kun katsoin Sohvaperunoita. Kävin jo hackaamassa OP:n kaikki palvelimet ja nyt on massii.","Heli","07:56 05-01-2018");
 
 		b.setTopicId(l);
 
