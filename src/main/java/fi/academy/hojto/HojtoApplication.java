@@ -68,13 +68,13 @@ public class HojtoApplication {
 		rm.setTopicId(r);
 //		messageRepository.save(rm);
 
-		rm = new Message("Älkää menkö kouluun. Edellinen koulu droppasi suureen monttuun ja kaikki katosivat. Olen löytänyt kommenteissa vihjeitä suuresta salaliitosta. Koko Hojto on yhtä huijausta ja koko maailmaa pyörittää viisi epäoliota.","olio","12:15 12-02-2018");
-		rm.setTopicId(r);
-		//messageRepository.save(rm);
+		Message rms = new Message("Älkää menkö kouluun. Edellinen koulu droppasi suureen monttuun ja kaikki katosivat. Olen löytänyt kommenteissa vihjeitä suuresta salaliitosta. Koko Hojto on yhtä huijausta ja koko maailmaa pyörittää viisi epäoliota.","olio","12:15 12-02-2018");
 
-		rm = new Message("Hyvät hojtolaiset. Ei syytä huoleen. Ylläpito kyllä kuuntelee teitä ja haluaa auttaa. Tarjoamme torstaina kaikille mutakakkua.","admin","13:02 13-02-2018");
-		rm.setTopicId(r);
-	//	messageRepository.save(rm);
+		//messageRepository.save(rms);
+		rms.setTopicId(r);
+		Message rmss = new Message("Hyvät hojtolaiset. Ei syytä huoleen. Ylläpito kyllä kuuntelee teitä ja haluaa auttaa. Tarjoamme torstaina kaikille mutakakkua.","admin","13:02 13-02-2018");
+		rmss.setTopicId(r);
+		//messageRepository.save(rmss);
 
 		topicRepository.save(r);
 
